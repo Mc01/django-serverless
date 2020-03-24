@@ -17,6 +17,14 @@ urlpatterns = [
 ]
 
 
+app = get_wsgi_application()
+
+
+def run(event, context):
+    from django.core.management import execute_from_command_line
+    execute_from_command_line(['manage.py', 'runserver'])
+
+
 if __name__ == "__main__":
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)
