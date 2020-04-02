@@ -23,5 +23,4 @@ custom:
     app: manage.app
     packRequirements: false
   pythonRequirements:
-    dockerizePip: true
     dockerFile: ./Dockerfile
