@@ -13,7 +13,7 @@ DEBUG = True
 SECRET_KEY = env('SECRET_KEY', default='')
 ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'app.urls'
-WSGI_APPLICATION = 'app.wsgi.app'
+WSGI_APPLICATION = 'app.wsgi.application'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # static
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.admin',
     'rest_framework',
 ]
 

@@ -15,6 +15,7 @@ provider:
     POSTGRES_DB: ${param:POSTGRES_DB}
     POSTGRES_USER: ${param:POSTGRES_USER}
     POSTGRES_PASSWORD: ${param:POSTGRES_PASSWORD}
+    SECRET_KEY: ${param:SECRET_KEY}
     DJANGO_SETTINGS_MODULE: app.settings
 
 functions:
@@ -30,7 +31,7 @@ functions:
 
 custom:
   wsgi:
-    app: manage.app
+    app: app.wsgi.application
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux

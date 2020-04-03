@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    volumes:
+    - .:/app
+    command: ./entrypoint.sh
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - DJANGO_SETTINGS_MODULE=app.settings
