@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 
-import sys
-
 import environ
 from django.conf import settings
-from django.core.wsgi import get_wsgi_application
 from django.http import HttpResponse
 from django.urls import path
 
@@ -42,20 +39,6 @@ urlpatterns = [
 ]
 
 
-app = get_wsgi_application()
-
-
-def run(event, context):
-    """
-    Lambda entry point
-    """
+def handler(event, context):
     from django.core.management import execute_from_command_line
-    execute_from_command_line(['manage.py', 'runserver'])
-
-
-if __name__ == '__main__':
-    """
-    Local entry point
-    """
-    from django.core.management import execute_from_command_line
-    execute_from_command_line(sys.argv)
+    execute_from_command_line(['manage.py', 'migrate'])

@@ -9,7 +9,6 @@ plugins:
 provider:
   name: aws
   runtime: python3.7
-  timeout: 30
   environment:
     POSTGRES_HOST: ${param:POSTGRES_HOST}
     POSTGRES_PORT: ${param:POSTGRES_PORT}
@@ -20,9 +19,13 @@ provider:
 functions:
   app:
     handler: wsgi_handler.handler
+    timeout: 30
     events:
       - http: ANY /
       - http: ANY {proxy+}
+  migrate:
+    handler: migrate.handler
+    timeout: 300
 
 custom:
   wsgi:
