@@ -8,6 +8,11 @@ To work with this repo you should have preinstalled:
 * Node Package Manager
 
 ## Setup
+Change `app` and `org` values in:
+```
+nano serverless.yml
+```
+
 Fill in secrets
 ```
 cp .env.sample .env && nano .env
