@@ -8,7 +8,7 @@ To work with this repo you should have preinstalled:
 * Node Package Manager
 
 ## Setup
-Change `app` and `org` values in:
+Change `service`, `app` and `org` values in:
 ```
 nano serverless.yml
 ```
