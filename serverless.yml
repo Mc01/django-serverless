@@ -2,14 +2,20 @@ service: django
 app: django
 org: mc001
 
-provider:
-  name: aws
-  runtime: python3.8
-  timeout: 30
-
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
+
+provider:
+  name: aws
+  runtime: python3.7
+  timeout: 30
+  environment:
+    POSTGRES_HOST: ${param:POSTGRES_HOST}
+    POSTGRES_PORT: ${param:POSTGRES_PORT}
+    POSTGRES_DB: ${param:POSTGRES_DB}
+    POSTGRES_USER: ${param:POSTGRES_USER}
+    POSTGRES_PASSWORD: ${param:POSTGRES_PASSWORD}
 
 functions:
   app:
@@ -23,4 +29,5 @@ custom:
     app: manage.app
     packRequirements: false
   pythonRequirements:
+    dockerizePip: non-linux
     dockerFile: ./Dockerfile
