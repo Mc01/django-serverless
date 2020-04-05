@@ -9,8 +9,7 @@ To work with this repo you should have preinstalled:
 * Make
 
 ## Setup
-Create app in Serverless dashboard and set
- `service`, `app` and `org` in Serverless config file
+Change `service`, `app` and `org` values in:
 ```
 nano serverless.yml
 ```
