@@ -6,26 +6,56 @@ To work with this repo you should have preinstalled:
 * Docker Desktop
 * Serverless Framework
 * Node Package Manager
+* Make
 
 ## Setup
+Create app in Serverless dashboard and set
+ `service`, `app` and `org` in Serverless config file
+```
+nano serverless.yml
+```
+
 Fill in secrets
 ```
 cp .env.sample .env && nano .env
 ```
 
-Install deployment deps
+Set the same secrets in Serverless Dashboard
 ```
-npm i
+make db
 ```
 
-## Usage
+Install deployment deps
+```
+make install-deps
+```
+
+## Development
 
 For local development
 ```
-docker-compose up -d
+make rebuild
 ```
+
+For Django shell
+```
+make shell
+```
+
+For running migrations
+```
+make migrate
+```
+
+## Deployment
 
 For remote deployment
 ```
-serverless deploy
+make deploy
+```
+
+For remote migrations
+```
+make remote-migrate
+make remote-migrate-logs
 ```

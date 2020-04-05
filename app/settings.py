@@ -33,13 +33,29 @@ DATABASES = {'default': DB_DEFAULT}
 
 # apps
 INSTALLED_APPS = [
+    # django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party
     'rest_framework',
+    'drf_yasg',
+    'corsheaders',
+    'django_filters',
+    'django_extensions',
+    # custom
+    'users.apps.UsersConfig',
+]
+
+# middleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 # rest framework
@@ -48,3 +64,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+# cors
+CORS_ORIGIN_ALLOW_ALL = True
+
+# user
+AUTH_USER_MODEL = 'users.User'
