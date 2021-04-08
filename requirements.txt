@@ -1,4 +1,4 @@
-Django==3.0.7
+Django==3.0.14
 Werkzeug==1.0.1
 django-environ==0.4.5
 serverless-psycopg2==0.0.2
